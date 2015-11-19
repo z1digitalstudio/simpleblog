@@ -1,0 +1,14 @@
+{% extends 'simpleblog/layout.html' %}
+
+{% block main_content %}
+
+{% for entry in entry_list %}
+<div class="entry">
+  <h2>{{ entry.title }}</h2>
+  <p>
+    {{ entry.intro }}
+  </p>
+</div>
+{% endfor %}
+
+{% endblock main_content %}

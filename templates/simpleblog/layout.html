@@ -1,0 +1,21 @@
+{% extends 'simpleblog/base.html' %}
+
+{% block body %}
+{% block main %}
+<div class="main">
+  {% block main_content %}{% endblock main_content %}
+</div>
+{% endblock main %}
+{% block sidebar %}
+<div class="sidebar">
+  {% block sidebar_content %}
+  <h2>Sidebar section</h2>
+  <ul>
+    <li>Sidebar content</li>
+    <li>Sidebar content</li>
+    <li>Sidebar content</li>
+  </ul>
+  {% endblock sidebar_content %}
+</div>
+{% endblock sidebar %}
+{% endblock body %}
