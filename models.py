@@ -1,6 +1,10 @@
+import datetime
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from simpleblog.managers import EntryManager
@@ -21,6 +25,13 @@ class Category(models.Model):
         return reverse(
             'blog_category_view', kwargs={'slug': self.slug}
         )
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _(u'Blog Category')
+        verbose_name_plural = _(u'Blog Categories')
 
 
 class Entry(models.Model):
@@ -48,8 +59,9 @@ class Entry(models.Model):
         default=False,
         db_index=True
     )
-    publication_date = models.DateField(
+    publication_date = models.DateTimeField(
         _(u'Publication Date'),
+        auto_now_add=True,
         db_index=True
     )
     seo_title = models.CharField(
@@ -86,3 +98,24 @@ class Entry(models.Model):
         return reverse(
             'blog_entry_view', kwargs={'slug': self.slug}
         )
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _(u'Blog Entry')
+        verbose_name_plural = _(u'Blog Entries')
+        ordering = ['-publication_date']
+
+
+@receiver(pre_save, sender=Entry)
+def modify_pub_date(sender, **kwargs):
+    instance = kwargs['instance']
+    new_pub_state = instance.published
+    try:
+        old_instance = sender.objects.get(pk=instance.pk)
+        old_pub_state = old_instance.published
+        if(new_pub_state is True and old_pub_state != new_pub_state):
+            instance.publication_date = datetime.datetime.now()
+    except(sender.DoesNotExist):
+        pass

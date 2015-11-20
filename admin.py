@@ -11,5 +11,6 @@ admin.site.register(Category, CategoryAdmin)
 
 class EntryAdmin(admin.ModelAdmin):
     model = Entry
+    exclude = ['publication_date']
 
 admin.site.register(Entry, EntryAdmin)
