@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -15,6 +16,11 @@ class Category(models.Model):
         max_length=100,
         db_index=True
     )
+
+    def get_absolute_url(self):
+        return reverse(
+            'blog_category_view', kwargs={'slug': self.slug}
+        )
 
 
 class Entry(models.Model):
@@ -75,3 +81,8 @@ class Entry(models.Model):
 
     objects = models.Manager()
     published_objects = EntryManager()
+
+    def get_absolute_url(self):
+        return reverse(
+            'blog_entry_view', kwargs={'slug': self.slug}
+        )

@@ -1,0 +1,19 @@
+{% extends 'simpleblog/layout.html' %}
+
+{% block main_content %}
+
+<div class="entry">
+  <h2>{{ entry.title }}</h2>
+  <p>
+    {{ entry.intro }}
+  </p>
+  <p>
+    <img src="/media/{{ entry.image }}"/>
+  </p>
+  <p>
+    {{ entry.content }}
+  </p>
+
+</div>
+
+{% endblock main_content %}

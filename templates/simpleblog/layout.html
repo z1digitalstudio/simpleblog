@@ -1,4 +1,5 @@
 {% extends 'simpleblog/base.html' %}
+{% load simpleblog_tags %}
 
 {% block body %}
 {% block main %}
@@ -10,11 +11,9 @@
 <div class="sidebar">
   {% block sidebar_content %}
   <h2>Sidebar section</h2>
-  <ul>
-    <li>Sidebar content</li>
-    <li>Sidebar content</li>
-    <li>Sidebar content</li>
-  </ul>
+  {% categories_list %}
+  <p>--------------------</p>
+  {% last_entries %}
   {% endblock sidebar_content %}
 </div>
 {% endblock sidebar %}

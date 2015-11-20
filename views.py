@@ -11,19 +11,17 @@ class IndexView(ListView):
 
 class EntryView(DetailView):
     model = Entry
+    template_name = 'simpleblog/entry.html'
 
 
 class CategoryView(ListView):
     model = Entry
     context_object_name = 'entry_list'
-
-    def get_context_data(self, **kwargs):
-        context = super(CategoryView, self).get_context_data(**kwargs)
-        context['category'] = Category.objects.get(self.kwargs['category'])
+    template_name = 'simpleblog/category.html'
 
     def get_queryset(self):
         return Entry.published_objects.filter(
-            category=self.context['category']
+            category=Category.objects.get(slug=self.kwargs['slug'])
         )
 
 
@@ -31,8 +29,6 @@ class AuthorView(ListView):
     model = Entry
     context_object_name = 'entry_list'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(CategoryView, self).get_context_data(**kwargs)
     def get_queryset(self):
         return Entry.published_objects.filter(
             author=self.context['author']

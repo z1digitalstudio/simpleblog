@@ -1,0 +1,15 @@
+{% extends 'simpleblog/layout.html' %}
+
+{% block main_content %}
+
+{% for entry in entry_list %}
+<div class="entry">
+  <h2>{{ entry.title }}</h2>
+  <p>
+    {{ entry.intro }}
+  </p>
+  <p> <a href={{entry.get_absolute_url}}>Read More</a>
+</div>
+{% endfor %}
+
+{% endblock main_content %}
