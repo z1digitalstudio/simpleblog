@@ -1,0 +1,50 @@
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+#python specific
+*.pyc
+pip-log.txt
+*.egg
+*.egg-info
+dist
+build
+eggs
+
+#Django
+*.log
+*.pot
+*.pyc
+database.db
+db.sqlite3
+static_root
+whoosh_index
+backup/
+fixtures/
+utils/dump.sql
+media_root/
+
+# Translations
+*.mo
+
+# SublimeText project files
+*.sublime-workspace
+
+# Vagrant
+.vagrant
+
+# Bower & Node
+bower_components
+node_modules
+
+# Static dist
+static
+
+# Local venv
+venv
+
+# local settings
+settings_local.py
