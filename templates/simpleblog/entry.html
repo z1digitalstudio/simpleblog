@@ -1,19 +1,24 @@
 {% extends 'simpleblog/layout.html' %}
+{% load i18n %}
 
 {% block main_content %}
-
-<div class="entry">
-  <h2>{{ entry.title }}</h2>
-  <p>
-    {{ entry.intro }}, {{ entry.publication_date }}
-  </p>
-  <p>
+<article>
+  <header>
+    <h1>{{ entry.title }}</h2>
+    <ul>
+      <li><a href="">{{ entry.author.name }}</a></li>
+      <li><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
+      <li><a href="#">{{ entry.category.name }}</a></li>
+    </ul>
+  </header>
+  <section>
     <img src="/media/{{ entry.image }}"/>
-  </p>
+  </section>
   <p>
-    {{ entry.content }}
+    {{ entry.intro }}
   </p>
-
-</div>
-
+  <section>
+    {{ entry.content|safe }}
+  </section>
+</article>
 {% endblock main_content %}

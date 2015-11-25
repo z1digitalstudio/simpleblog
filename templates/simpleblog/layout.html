@@ -1,20 +1,36 @@
 {% extends 'simpleblog/base.html' %}
-{% load simpleblog_tags %}
+{% load i18n simpleblog_tags %}
 
 {% block body %}
+
+{% block header %}
+<header>
+  {% block header_content %}
+  <h1>{% block blog_title %}{% trans "Blog" %}{% endblock blog_title %}</h1>
+  <h2>{% block blog_subtitle %}{% endblock blog_subtitle %}</h2>
+  {% endblock header_content %}
+</header>
+{% endblock header %}
+
 {% block main %}
-<div class="main">
+<main>
   {% block main_content %}{% endblock main_content %}
-</div>
+</main>
 {% endblock main %}
+
 {% block sidebar %}
-<div class="sidebar">
+<nav>
   {% block sidebar_content %}
-  <h2>Sidebar section</h2>
-  {% categories_list %}
-  <p>--------------------</p>
   {% last_entries %}
+  {% categories_list %}
   {% endblock sidebar_content %}
-</div>
+</nav>
 {% endblock sidebar %}
+
+{% block footer %}
+<footer>
+  {% block footer_content %}{% endblock footer_content %}
+</footer>
+{% endblock footer %}
+
 {% endblock body %}

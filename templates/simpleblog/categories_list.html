@@ -1,3 +1,6 @@
+{% load i18n %}
+
+<h2>{% trans "Categories" %}</h2>
 <ul>
 {% for category in categories %}
   <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>

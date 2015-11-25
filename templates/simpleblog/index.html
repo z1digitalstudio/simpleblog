@@ -1,15 +1,42 @@
 {% extends 'simpleblog/layout.html' %}
+{% load i18n %}
+
+{% if index_title %}
+{% block blog_subtitle %}{{ index_title }}{% endblock blog_subtitle %}
+{% endif %}
 
 {% block main_content %}
 
 {% for entry in entry_list %}
-<div class="entry">
-  <h2>{{ entry.title }}</h2>
+<article>
+  <header>
+    <h1>{{ entry.title }}</h1>
+    <ul>
+      <li><a href="">{{ entry.author.name }}</a></li>
+      <li><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
+      <li><a href="#">{{ entry.category.name }}</a></li>
+    </ul>
+  </header>
   <p>
     {{ entry.intro }}
   </p>
-  <p> <a href={{entry.get_absolute_url}}>Read More</a>
-</div>
+  <a href="{{ entry.get_absolute_url }}">{% trans "Read More" %}</a>
+</article>
 {% endfor %}
+
+{% block pagination %}
+{% if page_obj.has_other_pages %}
+<nav>
+  <ul>
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}">{% trans "Next Entries" %}</a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}">{% trans "Previous Entries" %}</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+{% endblock pagination %}
 
 {% endblock main_content %}
