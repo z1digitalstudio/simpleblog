@@ -1,10 +1,16 @@
+from django.contrib import auth
 from django.views.generic import ListView, DetailView
+
+from simpleblog import settings
 from simpleblog.models import Entry, Category
+
+PAGINATION_LIMIT = settings.PAGES_NUMBER
 
 
 class IndexView(ListView):
     context_object_name = 'entry_list'
     model = Entry
+    paginate_by = PAGINATION_LIMIT
     queryset = Entry.published_objects.all()
     template_name = 'simpleblog/index.html'
 
@@ -15,21 +21,38 @@ class EntryView(DetailView):
 
 
 class CategoryView(ListView):
-    model = Entry
     context_object_name = 'entry_list'
-    template_name = 'simpleblog/category.html'
+    model = Entry
+    paginate_by = PAGINATION_LIMIT
+    template_name = 'simpleblog/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        context['index_title'] = Category.objects.get(
+            slug=self.kwargs['slug']).name
+        return context
 
     def get_queryset(self):
         return Entry.published_objects.filter(
-            category=Category.objects.get(slug=self.kwargs['slug'])
+            category=Category.objects.get(
+                slug=self.kwargs['slug'])
         )
 
 
 class AuthorView(ListView):
-    model = Entry
     context_object_name = 'entry_list'
+    model = Entry
+    paginate_by = PAGINATION_LIMIT
+    template_name = 'simpleblog/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthorView, self).get_context_data(**kwargs)
+        author = auth.get_user_model().objects.get(
+            id=self.kwargs['id'])
+        context['index_title'] = author.first_name + ' ' + author.last_name
+        return context
 
     def get_queryset(self):
+
         return Entry.published_objects.filter(
-            author=self.context['author']
-        )
+            author_id=self.kwargs['id'])

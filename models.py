@@ -1,12 +1,12 @@
 import datetime
 
-from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
+from simpleblog import settings
 from simpleblog.managers import EntryManager
 
 
@@ -83,7 +83,7 @@ class Entry(models.Model):
         auto_now=True
     )
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        settings.USER_MODEL,
         verbose_name=_(u'Author')
     )
     category = models.ForeignKey(

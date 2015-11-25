@@ -1,5 +1,6 @@
 from django import template
 
+from simpleblog import settings
 from simpleblog.models import Category, Entry
 
 
@@ -14,5 +15,5 @@ def categories_list():
 
 @register.inclusion_tag('simpleblog/last_entries.html')
 def last_entries():
-    entries = Entry.published_objects.all()[:3]
+    entries = Entry.published_objects.all()[:settings.LAST_ENTRIES]
     return {'entries': entries}
