@@ -1,5 +1,6 @@
 {% extends 'simpleblog/layout.html' %}
 {% load i18n %}
+{% load static from staticfiles %}
 
 {% block main_content %}
 <article class="blog-entry blog-entry--detail">
@@ -12,7 +13,7 @@
     </ul>
   </header>
   <section class="blog-entry__image">
-    <img src="{{ MEDIA_URL }}{{ entry.image }}"/>
+    <img src="{% static entry.image.url %}"/>
   </section>
   <p class="blog-entry__intro">
     {{ entry.intro }}
