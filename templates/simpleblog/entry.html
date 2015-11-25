@@ -13,7 +13,7 @@
     </ul>
   </header>
   <section class="blog-entry__image">
-    <img src="{% static entry.image.url %}"/>
+    <img src="{{ entry.image.url }}"/>
   </section>
   <p class="blog-entry__intro">
     {{ entry.intro }}
