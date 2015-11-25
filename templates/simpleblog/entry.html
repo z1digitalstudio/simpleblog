@@ -6,13 +6,13 @@
   <header>
     <h1>{{ entry.title }}</h2>
     <ul class="blog-entry__info">
-      <li class="author"><a href="">{{ entry.author.name }}</a></li>
+      <li class="author"><a href="">{{ entry.author.first_name }} {{ entry.author.last_name }}</a></li>
       <li class="pubdate"><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
       <li class="category"><a href="#">{{ entry.category.name }}</a></li>
     </ul>
   </header>
   <section class="blog-entry__image">
-    <img src="/media/{{ entry.image }}"/>
+    <img src="{{ MEDIA_URL }}{{ entry.image }}"/>
   </section>
   <p class="blog-entry__intro">
     {{ entry.intro }}
