@@ -4,7 +4,7 @@
 {% block body %}
 
 {% block header %}
-<header>
+<header class="blog-header">
   {% block header_content %}
   <h1>{% block blog_title %}{% trans "Blog" %}{% endblock blog_title %}</h1>
   <h2>{% block blog_subtitle %}{% endblock blog_subtitle %}</h2>
@@ -13,13 +13,13 @@
 {% endblock header %}
 
 {% block main %}
-<main>
+<main class="blog-content">
   {% block main_content %}{% endblock main_content %}
 </main>
 {% endblock main %}
 
 {% block sidebar %}
-<nav>
+<nav class="blog-sidebar">
   {% block sidebar_content %}
   {% last_entries %}
   {% categories_list %}
@@ -28,7 +28,7 @@
 {% endblock sidebar %}
 
 {% block footer %}
-<footer>
+<footer class="blog-footer">
   {% block footer_content %}{% endblock footer_content %}
 </footer>
 {% endblock footer %}

@@ -2,22 +2,22 @@
 {% load i18n %}
 
 {% block main_content %}
-<article>
+<article class="blog-entry blog-entry--detail">
   <header>
     <h1>{{ entry.title }}</h2>
-    <ul>
-      <li><a href="">{{ entry.author.name }}</a></li>
-      <li><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
-      <li><a href="#">{{ entry.category.name }}</a></li>
+    <ul class="blog-entry__info">
+      <li class="author"><a href="">{{ entry.author.name }}</a></li>
+      <li class="pubdate"><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
+      <li class="category"><a href="#">{{ entry.category.name }}</a></li>
     </ul>
   </header>
-  <section>
+  <section class="blog-entry__image">
     <img src="/media/{{ entry.image }}"/>
   </section>
-  <p>
+  <p class="blog-entry__intro">
     {{ entry.intro }}
   </p>
-  <section>
+  <section class="blog-entry__content">
     {{ entry.content|safe }}
   </section>
 </article>

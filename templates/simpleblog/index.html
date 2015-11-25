@@ -8,25 +8,25 @@
 {% block main_content %}
 
 {% for entry in entry_list %}
-<article>
+<article class="blog-entry blog-entry--index">
   <header>
     <h1>{{ entry.title }}</h1>
-    <ul>
-      <li><a href="">{{ entry.author.name }}</a></li>
-      <li><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
-      <li><a href="#">{{ entry.category.name }}</a></li>
+    <ul class="blog-entry__info">
+      <li class="author"><a href="">{{ entry.author.name }}</a></li>
+      <li class="pubdate"><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
+      <li class="category"><a href="">{{ entry.category.name }}</a></li>
     </ul>
   </header>
-  <p>
+  <p class="blog-entry__intro">
     {{ entry.intro }}
   </p>
-  <a href="{{ entry.get_absolute_url }}">{% trans "Read More" %}</a>
+  <a class="blog-entry__link" href="{{ entry.get_absolute_url }}">{% trans "Read More" %}</a>
 </article>
 {% endfor %}
 
 {% block pagination %}
 {% if page_obj.has_other_pages %}
-<nav>
+<nav class="blog-pagination">
   <ul>
     {% if page_obj.has_previous %}
     <li><a href="?page={{ page_obj.previous_page_number }}">{% trans "Next Entries" %}</a></li>
