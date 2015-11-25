@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, url
 
+from simpleblog import settings
 from simpleblog.views import IndexView, EntryView, CategoryView, AuthorView
 
 urlpatterns = patterns(
@@ -13,11 +14,11 @@ urlpatterns = patterns(
         EntryView.as_view(),
         name='blog_entry_view'),
     url(
-        r'^category/(?P<slug>[\w-]+)/$',
+        r'^' + settings.TOKEN_CATEGORY + '/(?P<slug>[\w-]+)/$',
         CategoryView.as_view(),
         name='blog_category_view'),
     url(
-        r'^author/(?P<id>[\d]+)/$',
+        r'^' + settings.TOKEN_AUTHOR + '/(?P<id>[\d]+)/$',
         AuthorView.as_view(),
         name='blog_author_view')
     )
