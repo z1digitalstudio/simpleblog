@@ -1,6 +1,10 @@
 {% extends 'simpleblog/layout.html' %}
 {% load i18n %}
 
+{% block meta_title %}
+{% if index_title %}{{ index_title }}{% else %}{% trans "Blog" %}{% endif %}
+{% endblock meta_title %}
+
 {% if index_title %}
 {% block blog_subtitle %}{{ index_title }}{% endblock blog_subtitle %}
 {% endif %}

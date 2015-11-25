@@ -1,6 +1,11 @@
 {% extends 'simpleblog/layout.html' %}
+
 {% load i18n %}
 {% load static from staticfiles %}
+
+{% block meta_title %}{{ entry.seo_title }}{% endblock meta_title %}
+{% block meta_description %}{{ entry.seo_description }}{% endblock meta_description %}
+{% block meta_author %}{{ entry.author.first_name }} {{ entry.author.last_name }}{% endblock meta_author %}
 
 {% block main_content %}
 <article class="blog-entry blog-entry--detail">
