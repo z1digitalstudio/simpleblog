@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load static from staticfiles %}
 
-{% block twitter_account %}{{ TWITTER_ACCOUNT }}{% endblock twitter_account %}
+{% block twitter_account %}{{ twitter_account }}{% endblock twitter_account %}
 {% block twitter_title %}{{ entry.seo_title }}{% endblock twitter_title %}
 {% block twitter_description %}{{ entry.seo_description }}{% endblock twitter_description %}
 {% block twitter_image %}http://{{ site.domain }}{{ entry.image.url }}{% endblock twitter_image %}
@@ -12,11 +12,11 @@
 {% block og_url %}http://{{ site.domain }}{{ entry.get_absolute_url }}{% endblock og_url %}
 {% block og_image %}http://{{ site.domain }}{{ entry.image.url }}{% endblock og_image %}
 {% block og_description %}{{ entry.seo_description }}{% endblock og_description %}
-{% block og_site %}{{ FACEBOOK_SITE_NAME }}{% endblock og_site %}
+{% block og_site %}{{ facebook_site_name }}{% endblock og_site %}
 
 {% block meta_title %}{{ entry.seo_title }}{% endblock meta_title %}
 {% block meta_description %}{{ entry.seo_description }}{% endblock meta_description %}
-{% block meta_author %}{{ SITE_NAME }}{% endblock meta_author %}
+{% block meta_author %}{{ site_name }}{% endblock meta_author %}
 
 {% block main_content %}
 <article class="blog-entry blog-entry--detail">

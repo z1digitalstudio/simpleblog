@@ -24,6 +24,9 @@ class EntryView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EntryView, self).get_context_data(**kwargs)
         context['site'] = Site.objects.get_current()
+        context['twitter_account'] = settings.TWITTER_ACCOUNT
+        context['facebook_site_name'] = settings.FACEBOOK_SITE_NAME
+        context['site_name'] = settings.SITE_NAME
         return context
 
 

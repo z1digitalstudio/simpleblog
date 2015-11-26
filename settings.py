@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
+
 
 PAGES_NUMBER = getattr(settings, 'SIMPLEBLOG_PAGINATION_LIMIT', None)
 
@@ -25,3 +27,18 @@ TOKEN_AUTHOR = getattr(settings, 'SIMPLEBLOG_URL_TOKEN_AUTHOR', None)
 
 if TOKEN_AUTHOR is None:
     TOKEN_AUTHOR = 'author'
+
+TWITTER_ACCOUNT = getattr(settings, 'SIMPLEBLOG_TWITTER_ACCOUNT', None)
+
+if TWITTER_ACCOUNT is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_TWITTER_ACCOUNT is not defined in settings.')
+
+FACEBOOK_SITE_NAME = getattr(settings, 'SIMPLEBLOG_FACEBOOK_SITE_NAME', None)
+
+if FACEBOOK_SITE_NAME is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_FACEBOOK_SITE_NAME is not defined in settings.')
+
+SITE_NAME = getattr(settings, 'SIMPLEBLOG_SITE_NAME', None)
+
+if SITE_NAME is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_SITE_NAME is not defined in settings.')
