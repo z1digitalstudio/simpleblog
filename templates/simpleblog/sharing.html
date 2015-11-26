@@ -1,0 +1,17 @@
+<ul>
+  <li>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://{{ site.domain }}{{ entry.get_absolute_url }}"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">{% trans "Share on Facebook" %}
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/share?text={{ entry.seo_title }}&url=http://{{ site.domain }}{{ entry.get_absolute_url }}"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">{% trans "Share on Twitter" %}
+    </a>
+  </li>
+  <li>
+    <a href="http://pinterest.com/pin/create/button/?url=//{{ site.domain }}{{ entry.get_absolute_url }}&media={{ entry.image.url }}&description={{ entry.seo_title }}"
+      onclick="window.open(this.href, 'pinteres-share', 'width=550,height=235');return false;">{% trans "Share on Pinterest" %}
+    </a>
+  </li>
+</ul>

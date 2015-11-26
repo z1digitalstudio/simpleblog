@@ -3,6 +3,13 @@
 {% load i18n %}
 {% load static from staticfiles %}
 
+{% block twitter_image %}http://{{ site.domain }}{{ entry.image.url }}{% endblock twitter_image %}
+{% block og_title %}{{ entry.seo_title }}{% endblock og_title %}
+{% block og_url %}http://{{ site.domain }}{{ entry.get_absolute_url }}{% endblock og_url %}
+{% block og_image %}http://{{ site.domain }}{{ entry.image.url }}{% endblock og_image %}
+{% block og_description %}{{ entry.intro }}{% endblock og_description %}
+{% block og_site %}{{ site.domain }}{% endblock og_site %}
+
 {% block meta_title %}{{ entry.seo_title }}{% endblock meta_title %}
 {% block meta_description %}{{ entry.seo_description }}{% endblock meta_description %}
 {% block meta_author %}{{ entry.author.first_name }} {{ entry.author.last_name }}{% endblock meta_author %}
@@ -28,5 +35,8 @@
   <section class="blog-entry__content">
     {{ entry.content|safe }}
   </section>
+  <footer class="blog-entry__sharing">
+    {% include "simpleblog/sharing.html" %}
+  </footer>
 </article>
 {% endblock main_content %}

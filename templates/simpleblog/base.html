@@ -8,6 +8,14 @@
     <meta title="description" content="{% block meta_description %}{% endblock meta_description %}">
     <meta name="author" content="{% block meta_author %}{% endblock meta_author %}"/>
 
+    <meta name="twitter:image" content="{% block twitter_image %}{% endblock twitter_image %}">
+    <meta property="og:title" content="{% block og_title %}{% endblock og_title %}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{% block og_url %}{% endblock og_url %}" />
+    <meta property="og:image" content="{% block og_image %}{% endblock og_image %}" />
+    <meta property="og:description" content="{% block og_description %}{% endblock og_description %}" />
+    <meta property="og:site_name" content="{% block og_site %}{% endblock og_site %}" />
+
     {% block extra_head %}{% endblock extra_head %}
   </head>
   <body class="blog">
