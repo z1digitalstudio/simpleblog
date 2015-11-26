@@ -1,4 +1,5 @@
 from django.contrib import auth
+from django.contrib.sites.models import Site
 from django.views.generic import ListView, DetailView
 
 from simpleblog import settings
@@ -19,6 +20,11 @@ class IndexView(ListView):
 class EntryView(DetailView):
     model = Entry
     template_name = 'simpleblog/entry.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(EntryView, self).get_context_data(**kwargs)
+        context['site'] = Site.objects.get_current()
+        return context
 
 
 class CategoryView(ListView):
