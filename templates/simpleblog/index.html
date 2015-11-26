@@ -11,11 +11,11 @@
   <header>
     <h1><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h1>
     <ul class="blog-entry__info">
-      <li class="author"><a href="{% url 'blog_author_view' entry.author.id %}">{{ entry.author.first_name }} {{ entry.author.last_name }}</a></li>
+      <li class="author">{% trans "By" %} <a href="{% url 'blog_author_view' entry.author.id %}">{{ entry.author.first_name }} {{ entry.author.last_name }}</a></li>
       <li class="separator">•</li>
       <li class="pubdate"><time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
       <li class="separator">•</li>
-      <li class="category"><a href="{{ entry.category.get_absolute_url }}">{{ entry.category.name }}</a></li>
+      <li class="category">{% trans "Category" %}: <a href="{{ entry.category.get_absolute_url }}">{{ entry.category.name }}</a></li>
     </ul>
   </header>
   <section class="blog-entry__image">
