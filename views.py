@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 
 from simpleblog import settings
 from simpleblog.models import Entry, Category
+from django.utils.translation import ugettext_lazy as _
 
 PAGINATION_LIMIT = settings.PAGES_NUMBER
 
@@ -28,6 +29,7 @@ class CategoryView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
+        context['index_kind'] = _(u'Category')
         context['index_title'] = Category.objects.get(
             slug=self.kwargs['slug']).name
         return context
@@ -49,6 +51,7 @@ class AuthorView(ListView):
         context = super(AuthorView, self).get_context_data(**kwargs)
         author = auth.get_user_model().objects.get(
             id=self.kwargs['id'])
+        context['index_kind'] = _(u'Author')
         context['index_title'] = author.first_name + ' ' + author.last_name
         return context
 

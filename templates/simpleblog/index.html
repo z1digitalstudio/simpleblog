@@ -1,8 +1,8 @@
 {% extends 'simpleblog/layout.html' %}
 {% load i18n %}
 
-{% block meta_title %}{% if index_title %}{{ index_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock meta_title %}
-{% block blog_subtitle %}{% if index_title %}{{ index_title }}{% else %}{{ block.super }}{% endif %}{% endblock blog_subtitle %}
+{% block meta_title %}{% if index_title %}{{ index_kind }}: {{ index_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock meta_title %}
+{% block blog_subtitle %}{% if index_title %}{{ index_kind }}: {{ index_title }}{% else %}{{ block.super }}{% endif %}{% endblock blog_subtitle %}
 
 {% block main_content %}
 
