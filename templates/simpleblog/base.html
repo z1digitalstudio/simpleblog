@@ -2,15 +2,20 @@
 <html lang="{% block html_lang %}{% endblock html_lang %}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     <title>{% block meta_title %}{% endblock meta_title %}{% block meta_title_site %}{% endblock meta_title_site %}</title>
     <meta title="description" content="{% block meta_description %}{% endblock meta_description %}">
-    <meta name="author" content="{% block meta_author %}{% endblock meta_author %}"/>
+    <meta name="author" content="{% block meta_author %}{% endblock meta_author %}">
 
-    <meta name="twitter:image" content="{% block twitter_image %}{% endblock twitter_image %}">
-    <meta property="og:title" content="{% block og_title %}{% endblock og_title %}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{% block twitter_account %}{% endblock twitter_account %}" />
+    <meta name="twitter:title" content="{% block twitter_title %}{% endblock twitter_title %}" />
+    <meta name="twitter:description" content="{% block twitter_description %}{% endblock twitter_description %}" />
+    <meta name="twitter:image" content="{% block twitter_image %}{% endblock twitter_image %}" />
+
     <meta property="og:type" content="article" />
+    <meta property="og:title" content="{% block og_title %}{% endblock og_title %}" />
     <meta property="og:url" content="{% block og_url %}{% endblock og_url %}" />
     <meta property="og:image" content="{% block og_image %}{% endblock og_image %}" />
     <meta property="og:description" content="{% block og_description %}{% endblock og_description %}" />
