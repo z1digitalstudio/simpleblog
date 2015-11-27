@@ -31,14 +31,7 @@
 {% block pagination %}
 {% if page_obj.has_other_pages %}
 <nav class="blog-pagination">
-  <ul>
-    {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}">{% trans "Next Entries" %}</a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}">{% trans "Previous Entries" %}</a></li>
-    {% endif %}
-  </ul>
+  {% include "simpleblog/pagination.html" %}
 </nav>
 {% endif %}
 {% endblock pagination %}
