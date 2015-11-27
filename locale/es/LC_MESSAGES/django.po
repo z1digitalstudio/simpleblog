@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-27 12:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models.py:15
+msgid "Name"
+msgstr "Nombre"
+
+#: models.py:19 models.py:43
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:33
+msgid "Blog Category"
+msgstr "Categoría del Blog"
+
+#: models.py:34
+msgid "Blog Categories"
+msgstr "Categorías del Blog"
+
+#: models.py:39
+msgid "Title"
+msgstr "Título"
+
+#: models.py:48
+msgid "Image"
+msgstr "Imagen"
+
+#: models.py:52
+msgid "Introduction"
+msgstr "Introducción"
+
+#: models.py:55
+msgid "Content"
+msgstr "Contenido"
+
+#: models.py:58
+msgid "Published"
+msgstr "Publicado"
+
+#: models.py:63
+msgid "Publication Date"
+msgstr "Fecha de publicación"
+
+#: models.py:68
+msgid "Title (SEO)"
+msgstr "Título (SEO)"
+
+#: models.py:73
+msgid "Description (SEO)"
+msgstr "Descripción (SEO)"
+
+#: models.py:78
+msgid "Created"
+msgstr "Creado"
+
+#: models.py:82
+msgid "Modified"
+msgstr "Modificado"
+
+#: models.py:87 views.py:78
+msgid "Author"
+msgstr "Autor"
+
+#: models.py:91 templates/simpleblog/entry.html:30
+#: templates/simpleblog/index.html:18 views.py:55
+msgid "Category"
+msgstr "Categoría"
+
+#: models.py:106
+msgid "Blog Entry"
+msgstr "Entrada del Blog"
+
+#: models.py:107
+msgid "Blog Entries"
+msgstr "Entradas del Blog"
+
+#: templates/simpleblog/categories_list.html:3
+msgid "Categories"
+msgstr "Categorías"
+
+#: templates/simpleblog/entry.html:26 templates/simpleblog/index.html:14
+msgid "By"
+msgstr "Por"
+
+#: templates/simpleblog/index.html:4 templates/simpleblog/layout.html:9
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/simpleblog/index.html:27
+msgid "Read More"
+msgstr "Leer más"
+
+#: templates/simpleblog/last_entries.html:3
+msgid "Last Entries"
+msgstr "Últimas entradas"
+
+#: templates/simpleblog/pagination.html:3
+msgid "Next Entries"
+msgstr "Entradas más recientes"
+
+#: templates/simpleblog/pagination.html:6
+msgid "Previous Entries"
+msgstr "Entradas anteriores"
+
+#: templates/simpleblog/sharing.html:4
+msgid "Share on Facebook"
+msgstr "Compartir en Facebook"
+
+#: templates/simpleblog/sharing.html:9
+msgid "Share on Twitter"
+msgstr "Compartir en Twitter"
+
+#: templates/simpleblog/sharing.html:14
+msgid "Share on Pinterest"
+msgstr "Compartir en Pinterest"
