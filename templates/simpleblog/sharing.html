@@ -10,7 +10,7 @@
     </a>
   </li>
   <li>
-    <a href="http://pinterest.com/pin/create/button/?url=//{{ site.domain }}{{ entry.get_absolute_url }}&media={{ entry.image.url }}&description={{ entry.seo_title }}"
+    <a href="http://pinterest.com/pin/create/button/?url=http://{{ site.domain }}{{ entry.get_absolute_url }}&media=http://{{ site.domain }} {{ entry.image.url }}&description={{ entry.seo_title }}"
       onclick="window.open(this.href, 'pinteres-share', 'width=550,height=235');return false;">{% trans "Share on Pinterest" %}
     </a>
   </li>

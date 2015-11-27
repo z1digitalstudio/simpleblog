@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('intro', models.TextField(verbose_name='Introduction')),
                 ('content', models.TextField(verbose_name='Content')),
                 ('published', models.BooleanField(default=False, db_index=True, verbose_name='Published')),
-                ('publication_date', models.DateField(verbose_name='Publication Date', db_index=True)),
+                ('publication_date', models.DateTimeField(auto_now_add=True, verbose_name='Publication Date', db_index=True)),
                 ('seo_title', models.CharField(max_length=68, null=True, verbose_name='Title (SEO)', blank=True)),
                 ('seo_description', models.CharField(max_length=155, null=True, verbose_name='Description (SEO)', blank=True)),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
