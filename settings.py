@@ -38,7 +38,26 @@ FACEBOOK_SITE_NAME = getattr(settings, 'SIMPLEBLOG_FACEBOOK_SITE_NAME', None)
 if FACEBOOK_SITE_NAME is None:
     raise ImproperlyConfigured('SIMPLEBLOG_FACEBOOK_SITE_NAME is not defined in settings.')
 
-SITE_NAME = getattr(settings, 'SIMPLEBLOG_SITE_NAME', None)
 
-if SITE_NAME is None:
-    raise ImproperlyConfigured('SIMPLEBLOG_SITE_NAME is not defined in settings.')
+META_TITLE = getattr(settings, 'SIMPLEBLOG_DEFAULT_META_TITLE', None)
+
+if META_TITLE is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_DEFAULT_META_TITLE is not defined in settings.')
+
+
+META_DESCRIPTION = getattr(settings, 'SIMPLEBLOG_DEFAULT_META_DESCRIPTION', None)
+
+if META_DESCRIPTION is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_DEFAULT_META_DESCRIPTION is not defined in settings.')
+
+
+META_AUTHOR = getattr(settings, 'SIMPLEBLOG_DEFAULT_META_AUTHOR', None)
+
+if META_AUTHOR is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_DEFAULT_META_AUTHOR is not defined in settings.')
+
+
+META_SITE_NAME = getattr(settings, 'SIMPLEBLOG_DEFAULT_META_SITE_NAME', None)
+
+if META_SITE_NAME is None:
+    raise ImproperlyConfigured('SIMPLEBLOG_DEFAULT_META_SITE_NAME is not defined in settings.')
