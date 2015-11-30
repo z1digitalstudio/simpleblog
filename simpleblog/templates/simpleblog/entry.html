@@ -14,7 +14,7 @@
 {% block og_description %}{{ entry.seo_description }}{% endblock og_description %}
 {% block og_site %}{{ facebook_site_name }}{% endblock og_site %}
 
-{% block meta_title %}{{ entry.seo_title }}{% endblock meta_title %}
+{% block meta_title %}{{ entry.seo_title }}{{meta_site_name}}{% endblock meta_title %}
 {% block meta_description %}{{ entry.seo_description }}{% endblock meta_description %}
 {% block meta_author %}{{ meta_author }}{% endblock meta_author %}
 

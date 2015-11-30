@@ -39,7 +39,7 @@ class EntryView(DetailView):
         context['site'] = Site.objects.get_current()
         context['twitter_account'] = settings.TWITTER_ACCOUNT
         context['facebook_site_name'] = settings.FACEBOOK_SITE_NAME
-        context['site_name'] = settings.META_SITE_NAME
+        context['meta_site_name'] = settings.META_SITE_NAME
         return context
 
 
