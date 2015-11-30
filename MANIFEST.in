@@ -1,1 +1,2 @@
 recursive-include simpleblog/templates *
+recursive-include simpleblog/locale *
