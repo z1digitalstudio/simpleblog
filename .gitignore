@@ -27,9 +27,6 @@ fixtures/
 utils/dump.sql
 media_root/
 
-# Translations
-*.mo
-
 # SublimeText project files
 *.sublime-workspace
 
