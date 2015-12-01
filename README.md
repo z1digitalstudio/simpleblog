@@ -1,10 +1,10 @@
 # Simpleblog
 Simple blog application for django framework.
 
-# Dependencies
+## Dependencies
 Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redactoreditor) for enhancing the admin form for blog entries.
 
-#Required Settings
+## Required Settings
 - SIMPLEBLOG_TWITTER_ACCOUNT
   - Specifies the referenced *Twitter Account* when sharing a post.
 - SIMPLEBLOG_FACEBOOK_SITE_NAME
@@ -19,7 +19,7 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
 - SIMPLEBLOG_DEFAULT_META_AUTHOR
   - Specifies the fallback site author by default.
 
-#Optional Settings
+## Optional Settings
 - SIMPLEBLOG_PAGINATION_LIMIT
   - Specifies the number of posts shown in each list view.
 - SIMPLEBLOG_LAST_ENTRIES_NUMBER
