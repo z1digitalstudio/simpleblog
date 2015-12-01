@@ -12,7 +12,8 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
 - SIMPLEBLOG_DEFAULT_META_TITLE
   - Specifies the site title by default.
 - SIMPLEBLOG_DEFAULT_META_SITE_NAME
-  - Specifies the suffix that will appear after SIMPLEBLOG_DEFAULT_META_TITLE. It's recommended to add a marker as ' - ' or ' | ' at the beginning.
+  - Specifies the suffix that will appear after SIMPLEBLOG_DEFAULT_META_TITLE.
+  - It's recommended to add a marker as ' - ' or ' | ' at the beginning.
 - SIMPLEBLOG_DEFAULT_META_DESCRIPTION
   - Specifies the site description by default.
 - SIMPLEBLOG_DEFAULT_META_AUTHOR
