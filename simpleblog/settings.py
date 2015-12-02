@@ -38,6 +38,20 @@ FACEBOOK_SITE_NAME = getattr(settings, 'SIMPLEBLOG_FACEBOOK_SITE_NAME', None)
 if FACEBOOK_SITE_NAME is None:
     raise ImproperlyConfigured('SIMPLEBLOG_FACEBOOK_SITE_NAME is not defined in settings.')
 
+FACEBOOK_LANGUAGE = getattr(settings, 'SIMPLEBLOG_FACEBOOK_LANGUAGE', None)
+
+if FACEBOOK_LANGUAGE is None:
+    FACEBOOK_LANGUAGE = "en_EN"
+
+FACEBOOK_POSTS_NUMBER = getattr(settings, 'SIMPLEBLOG_FACEBOOK_POSTS_NUMBER', None)
+
+if FACEBOOK_POSTS_NUMBER is None:
+        FACEBOOK_POSTS_NUMBER = 5
+
+FACEBOOK_ADMINS = getattr(settings, 'SIMPLEBLOG_FACEBOOK_ADMINS', None)
+
+if FACEBOOK_ADMINS is None:
+        FACEBOOK_ADMINS = []
 
 META_TITLE = getattr(settings, 'SIMPLEBLOG_DEFAULT_META_TITLE', None)
 
