@@ -33,6 +33,10 @@ class EntryAdmin(admin.ModelAdmin):
     model = Entry
     prepopulated_fields = {'slug': ('title', )}
     exclude = ['publication_date']
+    list_display = ('title', 'category', 'published', 'publication_date')
+    search_fields = ['title']
+    list_filter = ('title', 'category',
+                   'publication_date', 'published')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'author':
