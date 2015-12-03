@@ -28,3 +28,9 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
   - Specifies the URL path of the *Category* list view. The default value is 'category'.
 - SIMPLEBLOG_URL_TOKEN_AUTHOR
   - Specifies the URL path of the *Author* list view. The default value is 'author'.
+- SIMPLEBLOG_FACEBOOK_LANGUAGE
+  - Specifies the *language* of Facebook Comments Plugin. The default value is 'en_EN'
+- SIMPLEBLOG_FACEBOOK_POSTS_NUMBER
+  - Specifies the *numbers of posts* that will be shown on the Facebook Comments Plugin. The default values is 5.
+- SIMPLEBLOG_FACEBOOK_ADMINS
+  - Specifies the *id of the users* that will moderate the Facebook Comments Plugin. It must be a list.
