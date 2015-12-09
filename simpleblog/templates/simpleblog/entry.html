@@ -24,7 +24,7 @@
 
 <article class="blog-entry blog-entry--detail">
   <header>
-    <h1>{{ entry.title }}</h2>
+    <h1>{{ entry.title }}</h1>
     <ul class="blog-entry__info">
       <li class="author">{% trans "By" %} <a href="{% url 'blog_author_view' entry.author.id %}">{{ entry.author.first_name }} {{ entry.author.last_name }}</a></li>
       <li class="separator">•</li>

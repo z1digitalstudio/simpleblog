@@ -21,6 +21,17 @@ class Category(models.Model):
         db_index=True
     )
 
+    seo_title = models.CharField(
+        _(u'Title (SEO)'),
+        max_length=68,
+        blank=True, null=True
+    )
+    seo_description = models.CharField(
+        _(u'Description (SEO)'),
+        max_length=155,
+        blank=True, null=True
+    )
+
     def get_absolute_url(self):
         return reverse(
             'blog_category_view', kwargs={'slug': self.slug}

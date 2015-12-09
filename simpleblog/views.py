@@ -55,9 +55,13 @@ class CategoryView(ListView):
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context = set_default_metadata(context)
-        context['index_kind'] = _(u'Category')
-        context['index_title'] = Category.objects.get(
-            slug=self.kwargs['slug']).name
+        category = Category.objects.get(
+            slug=self.kwargs['slug'])
+        context['meta_title'] = category.seo_title
+        context['meta_description'] = category.seo_description
+        context['index_type'] = _(u'Category')
+        context['is_category'] = True
+        context['index_title'] = category.name
         return context
 
     def get_queryset(self):
@@ -78,7 +82,7 @@ class AuthorView(ListView):
         context = set_default_metadata(context)
         author = auth.get_user_model().objects.get(
             id=self.kwargs['id'])
-        context['index_kind'] = _(u'Author')
+        context['index_type'] = _(u'Author')
         context['index_title'] = author.first_name + ' ' + author.last_name
         return context
 

@@ -1,15 +1,21 @@
 {% extends 'simpleblog/layout.html' %}
 {% load i18n %}
 
-{% block meta_title %}{% if index_title %}{{ index_kind }}: {{ index_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock meta_title %}
-{% block blog_subtitle %}{% if index_title %}{{ index_kind }}: {{ index_title }}{% else %}{{ block.super }}{% endif %}{% endblock blog_subtitle %}
+{% if is_category %}
+{% block meta_title %}{{meta_title}}{% endblock meta_title %}
+{% block meta_description %}{{meta_description}}{% endblock meta_description %}
+{% else %}
+{% block meta_title %}{% if index_title %}{{ index_type }}: {{ index_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock meta_title %}
+{% block blog_subtitle %}{% if index_title %}{{ index_type }}: {{ index_title }}{% else %}{{ block.super }}{% endif %}{% endblock blog_subtitle %}
+{% endif %}
+
 
 {% block main_content %}
 
 {% for entry in entry_list %}
 <article class="blog-entry blog-entry--index">
   <header>
-    <h1><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h1>
+    <h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2>
     <ul class="blog-entry__info">
       <li class="author">{% trans "By" %} <a href="{% url 'blog_author_view' entry.author.id %}">{{ entry.author.first_name }} {{ entry.author.last_name }}</a></li>
       <li class="separator">•</li>
