@@ -1,13 +1,10 @@
 {% extends 'simpleblog/layout.html' %}
 {% load i18n %}
 
-{% if is_category %}
-{% block meta_title %}{{meta_title}}{% endblock meta_title %}
-{% block meta_description %}{{meta_description}}{% endblock meta_description %}
-{% else %}
-{% block meta_title %}{% if index_title %}{{ index_type }}: {{ index_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock meta_title %}
+{% block meta_description %}{% if is_category %}{{meta_description}}{% else %}{{ block.super }}{% endif %}{% endblock meta_description %}
+{% block meta_title %}{% if is_category %}{{meta_title}}{% elif index_title %}{{ index_type }}: {{ index_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock meta_title %}
 {% block blog_subtitle %}{% if index_title %}{{ index_type }}: {{ index_title }}{% else %}{{ block.super }}{% endif %}{% endblock blog_subtitle %}
-{% endif %}
+
 
 
 {% block main_content %}
@@ -25,7 +22,7 @@
     </ul>
   </header>
   <section class="blog-entry__image">
-    <img src="{{ entry.image.url }}"/>
+    <img src="{{ entry.image.url }}" alt="{{ entry.title }}"/>
   </section>
   <p class="blog-entry__intro">
     {{ entry.intro }}
