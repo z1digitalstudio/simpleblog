@@ -1,5 +1,8 @@
 from django.contrib import admin
+from django.contrib.auth import get_user_model
+from django.db.models import Count
 from django.forms import ModelForm
+from django.utils.translation import ugettext_lazy as _
 
 from simpleblog.models import Category, Entry
 
@@ -28,6 +31,25 @@ class EntryAdminForm(ModelForm):
                 )}
 
 
+class AuthorFilter(admin.SimpleListFilter):
+    title = _('Author')
+    parameter_name = 'author__id__exact'
+
+    def lookups(self, request, model_admin):
+        author_model = get_user_model()
+        authors = author_model.objects.annotate(
+            num_entries=Count('entry')).filter(num_entries__gt=0).distinct()
+        lookup_list = ()
+        for author in authors.all():
+            lookup_list = lookup_list + ((author.pk, author),)
+        return lookup_list
+
+    def queryset(self, request, queryset):
+
+        if self.value():
+            return queryset.filter(author__pk=self.value())
+
+
 class EntryAdmin(admin.ModelAdmin):
     form = EntryAdminForm
     model = Entry
@@ -35,7 +57,7 @@ class EntryAdmin(admin.ModelAdmin):
     exclude = ['publication_date']
     list_display = ('title', 'category', 'published', 'publication_date')
     search_fields = ['title']
-    list_filter = ('title', 'category',
+    list_filter = (AuthorFilter, 'category',
                    'publication_date', 'published')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
