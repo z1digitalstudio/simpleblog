@@ -1,5 +1,6 @@
 from django.contrib import auth
 from django.contrib.sites.models import Site
+from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
 from simpleblog import settings
@@ -55,7 +56,8 @@ class CategoryView(ListView):
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context = set_default_metadata(context)
-        category = Category.objects.get(
+        category = get_object_or_404(
+            Category,
             slug=self.kwargs['slug'])
         context['meta_title'] = category.seo_title
         context['meta_description'] = category.seo_description
@@ -66,8 +68,7 @@ class CategoryView(ListView):
 
     def get_queryset(self):
         return Entry.published_objects.filter(
-            category=Category.objects.get(
-                slug=self.kwargs['slug'])
+            category__slug=self.kwargs['slug']
         )
 
 
@@ -80,7 +81,8 @@ class AuthorView(ListView):
     def get_context_data(self, **kwargs):
         context = super(AuthorView, self).get_context_data(**kwargs)
         context = set_default_metadata(context)
-        author = auth.get_user_model().objects.get(
+        author = get_object_or_404(
+            auth.get_user_model(),
             id=self.kwargs['id'])
         context['index_type'] = _(u'Author')
         context['index_title'] = author.first_name + ' ' + author.last_name
