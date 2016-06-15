@@ -4,7 +4,7 @@ from django.db.models import Count
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
-from simpleblog.models import Category, Entry
+from simpleblog.models import Category, Entry, EntryImage
 
 from redactor.widgets import RedactorEditor
 
@@ -16,6 +16,10 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 
+class EntryImageInline(admin.TabularInline):
+    model = EntryImage
+
+
 class EntryAdminForm(ModelForm):
 
     class Meta:
@@ -25,7 +29,7 @@ class EntryAdminForm(ModelForm):
                 'formattingTags': ['p', 'blockquote', 'pre', 'h2', 'h3',
                                    'h4', 'h5', 'h6'],
                 'buttons': [
-                    'formatting', 'bold', 'italic', 'deleted',
+                    'formatting', 'bold', 'italic', 'deleted', 'image',
                     'unorderedlist', 'orderedlist', 'link', 'html'
                     ]}
                 )}
@@ -55,6 +59,7 @@ class EntryAdmin(admin.ModelAdmin):
     model = Entry
     prepopulated_fields = {'slug': ('title', )}
     exclude = ['publication_date']
+    inlines = [EntryImageInline, ]
     list_display = ('title', 'category', 'published', 'publication_date')
     search_fields = ['title']
     list_filter = (AuthorFilter, 'category',

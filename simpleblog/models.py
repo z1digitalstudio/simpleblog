@@ -119,6 +119,23 @@ class Entry(models.Model):
         ordering = ['-publication_date']
 
 
+class EntryImage(models.Model):
+    image = models.ImageField(
+        _(u'Image'),
+        upload_to='blog/images/',
+        null=True
+    )
+    entry = models.ForeignKey(
+        Entry,
+        related_name="entries",
+        verbose_name=_(u'Author')
+    )
+
+    class Meta:
+        verbose_name = _(u'Entry image')
+        verbose_name_plural = _(u'Entry images')
+
+
 @receiver(pre_save, sender=Entry)
 def modify_pub_date(sender, **kwargs):
     instance = kwargs['instance']
