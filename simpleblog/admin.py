@@ -18,6 +18,7 @@ admin.site.register(Category, CategoryAdmin)
 
 class EntryImageInline(admin.TabularInline):
     model = EntryImage
+    extra = 1
 
 
 class EntryAdminForm(ModelForm):
