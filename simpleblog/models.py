@@ -99,6 +99,9 @@ class Entry(models.Model):
     )
     category = models.ForeignKey(
         Category,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
         verbose_name=_(u'Category')
     )
 
