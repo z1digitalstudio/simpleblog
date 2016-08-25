@@ -85,7 +85,10 @@ class AuthorView(ListView):
             auth.get_user_model(),
             id=self.kwargs['id'])
         context['index_type'] = _(u'Author')
-        context['index_title'] = unicode(author)
+        try:
+            context['index_title'] = author.get_full_name()
+        except AttributeError:
+            context['index_title'] = unicode(author)
         return context
 
     def get_queryset(self):
