@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<ul class="blog-entry__info">
+  <li class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">{% trans "By" %} <a itemprop="url" href="{% url 'blog_author_view' entry.author.id %}"><span itemprop="name">{% if entry.author.get_full_name %}
+    {{entry.author.get_full_name}}
+  {% else %}
+    {{entry.author.first_name}} {{entry.author.last_name}}
+  {% endif %}</span></a></li>
+  <li class="separator">•</li>
+  <li class="pubdate"><time itemprop="datePublished" datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
+  <li class="separator">•</li>
+  <li class="category" itemprop="articleSection">{% trans "Category" %}: <a href="{{ entry.category.get_absolute_url }}">{{ entry.category.name }}</a></li>
+</ul>

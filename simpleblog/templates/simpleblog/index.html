@@ -14,18 +14,9 @@
   <meta name="publisher-{{entry.pk}}" itemprop="publisher" content="{{ meta_author }}">
   <header>
     <h2 itemprop="headline"><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2>
-    <ul class="blog-entry__info">
-      <li class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">{% trans "By" %} <a itemprop="url" href="{% url 'blog_author_view' entry.author.id %}"><span itemprop="name">
-        {% if entry.author.get_full_name %}
-          {{entry.author.get_full_name}}
-        {% else %}
-          {{entry.author.first_name}} {{entry.author.last_name}}
-        {% endif %}</span></a></li>
-      <li class="separator">•</li>
-      <li class="pubdate"><time itemprop="datePublished" datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"DATE_FORMAT" }}</time></li>
-      <li class="separator">•</li>
-      <li class="category" itemprop="articleSection">{% trans "Category" %}: <a href="{{ entry.category.get_absolute_url }}">{{ entry.category.name }}</a></li>
-    </ul>
+    {% block entry_subtitle %}
+      {% include "simpleblog/entry_subtitle.html" with entry=entry%}
+    {% endblock entry_subtitle%}
   </header>
   <section class="blog-entry__image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
     <img itemprop="url" src="{{ entry.image.url }}" alt="{{ entry.title }}"/>
