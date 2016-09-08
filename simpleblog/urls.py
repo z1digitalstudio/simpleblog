@@ -22,7 +22,7 @@ urlpatterns = patterns(
         AuthorView.as_view(),
         name='blog_author_view'),
     url(
-        r'^' + settings.TOKEN_AUTHOR + '/(?P<uuid>[^/]+)/$',
+        r'^' + settings.TOKEN_AUTHOR + '/(?P<id>[^/]+)/$',
         AuthorView.as_view(),
         name='blog_author_view')
     )
