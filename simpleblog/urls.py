@@ -20,5 +20,9 @@ urlpatterns = patterns(
     url(
         r'^' + settings.TOKEN_AUTHOR + '/(?P<id>[\d]+)/$',
         AuthorView.as_view(),
+        name='blog_author_view'),
+    url(
+        r'^' + settings.TOKEN_AUTHOR + '/(?P<uuid>[^/]+)/$',
+        AuthorView.as_view(),
         name='blog_author_view')
     )
