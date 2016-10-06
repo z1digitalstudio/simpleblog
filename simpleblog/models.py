@@ -53,7 +53,7 @@ class Entry(models.Model):
     slug = models.SlugField(
         _(u'Slug'),
         max_length=100,
-        db_index=True
+        unique=True
     )
     image = models.ImageField(
         _(u'Image'),
