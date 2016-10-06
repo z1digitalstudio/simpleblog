@@ -17,7 +17,7 @@ def rename_duplicated_slugs(apps, schema_editor):
             for rep in repeated:
                 rep.slug = "{0}-{1}".format(rep.slug, n)
                 # Used to avoid signals
-                Entry.objects.get(pk=rep.pk).update(slug=rep.slug)
+                Entry.objects.filter(pk=rep.pk).update(slug=rep.slug)
                 modified.append(rep.pk)
                 n += 1
 
