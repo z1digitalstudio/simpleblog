@@ -6,11 +6,11 @@
 {% block twitter_account %}{{ twitter_account }}{% endblock twitter_account %}
 {% block twitter_title %}{{ entry.seo_title }}{% endblock twitter_title %}
 {% block twitter_description %}{{ entry.seo_description }}{% endblock twitter_description %}
-{% block twitter_image %}http://{{ site.domain }}{{ entry.image.url }}{% endblock twitter_image %}
+{% block twitter_image %}{% if not absolute_pictures_url %}http{% if request.is_secure %}s{% endif %}://{{ site.domain }}{% endif %}{{ entry.image.url }}{% endblock twitter_image %}
 
 {% block og_title %}{{ entry.seo_title }}{% endblock og_title %}
-{% block og_url %}http://{{ site.domain }}{{ entry.get_absolute_url }}{% endblock og_url %}
-{% block og_image %}http://{{ site.domain }}{{ entry.image.url }}{% endblock og_image %}
+{% block og_url %}http{% if request.is_secure %}s{% endif %}://{{ site.domain }}{{ entry.get_absolute_url }}{% endblock og_url %}
+{% block og_image %}{% if not absolute_pictures_url %}http{% if request.is_secure %}s{% endif %}://{{ site.domain }}{% endif %}{{ entry.image.url }}{% endblock og_image %}
 {% block og_description %}{{ entry.seo_description }}{% endblock og_description %}
 {% block og_site %}{{ facebook_site_name }}{% endblock og_site %}
 

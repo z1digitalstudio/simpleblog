@@ -44,6 +44,7 @@ class EntryView(DetailView):
         context['facebook_posts_number'] = settings.FACEBOOK_POSTS_NUMBER
         context['facebook_admins'] = settings.FACEBOOK_ADMINS
         context['meta_site_name'] = settings.META_SITE_NAME
+        context['absolute_pictures_url'] = settings.ABSOLUTE_PICTURES_URL
         return context
 
 
