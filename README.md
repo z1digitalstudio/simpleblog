@@ -34,8 +34,9 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
   - Specifies the *numbers of posts* that will be shown on the Facebook Comments Plugin. The default values is 5.
 - SIMPLEBLOG_FACEBOOK_ADMINS
   - Specifies the *id of the users* that will moderate the Facebook Comments Plugin. It must be a list.
- - SIMPLEBLOG_ABSOLUTE_PICTURES_URL
+- SIMPLEBLOG_ABSOLUTE_PICTURES_URL
   - Specifies if urls are served as absolute urls or relative urls.
+
 ## Context processor (must be added)
  - "simpleblog.context_processors.simpleblog_context"
   - This context processor provides Last Entries as {{last_entries}} and Categories as {{categories}}
