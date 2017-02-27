@@ -13,6 +13,7 @@
 {% block og_image %}{% if not absolute_pictures_url %}http{% if request.is_secure %}s{% endif %}://{{ site.domain }}{% endif %}{{ entry.image.url }}{% endblock og_image %}
 {% block og_description %}{{ entry.seo_description }}{% endblock og_description %}
 {% block og_site %}{{ facebook_site_name }}{% endblock og_site %}
+{% block fb_app_id %}{{ fb_app_id }}{% endblock fb_app_id %}
 
 {% block meta_title %}{{ entry.seo_title }}{% endblock meta_title %}
 {% block meta_description %}{{ entry.seo_description }}{% endblock meta_description %}
