@@ -90,7 +90,7 @@ class AuthorView(ListView):
         try:
             context['index_title'] = author.get_full_name()
         except AttributeError:
-            context['index_title'] = unicode(author)
+            context['index_title'] = str(author)
         return context
 
     def get_queryset(self):

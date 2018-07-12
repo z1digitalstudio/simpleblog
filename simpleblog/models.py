@@ -37,7 +37,7 @@ class Category(models.Model):
             'blog_category_view', kwargs={'slug': self.slug}
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -113,7 +113,7 @@ class Entry(models.Model):
             'blog_entry_view', kwargs={'slug': self.slug}
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
