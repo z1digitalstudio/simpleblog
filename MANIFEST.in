@@ -1,2 +1,3 @@
 recursive-include simpleblog/templates *
 recursive-include simpleblog/locale *
+recursive-include *.py
