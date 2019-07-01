@@ -130,7 +130,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
         ]
         ```
 
-- ##### entry/<id>
+- ##### entry/\<id\>
     - Overview:
         Returns the detail of an Entry Object.
     
@@ -164,7 +164,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
         ```
 
 
-- ##### entry/<slug>
+- ##### entry/\<slug\>
     - Overview:
         Returns the detail of an Entry Object.
 
