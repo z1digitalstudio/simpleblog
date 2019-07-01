@@ -27,7 +27,7 @@ class EntrySerializer(serializers.ModelSerializer):
         model = Entry
         fields = (
             'id', 'title', 'slug', 'image', 'intro',
-            'publication_date', 'seo_title', 'seo_description', 'created',
+            'publication_date', 'seo_title', 'seo_description',
             'modified', 'author', 'category', 'url'
         )
 
@@ -42,6 +42,6 @@ class EntryDetailSerializer(serializers.ModelSerializer):
         model = Entry
         fields = (
             'id', 'title', 'slug', 'image', 'intro', 'content',
-            'publication_date', 'seo_title', 'seo_description', 'created',
+            'publication_date', 'seo_title', 'seo_description',
             'modified', 'author', 'category', 'url'
         )
