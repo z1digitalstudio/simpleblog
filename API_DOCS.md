@@ -14,7 +14,7 @@ Simpleblog uses [django-restframework](https://github.com/encode/django-rest-fra
 Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional Settings* above.
 
 ### Category
-- category/
+- ##### category/
     - Overview:
         List the categories ordered by id.
 
@@ -63,7 +63,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
 
 
 ### Entry
-- entry/
+- ##### entry/
     - Overview:
         List the entries ordered by publication date
 
@@ -76,6 +76,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
             Allow filtering by Category slug.
 
     - Example Response:
+
         `GET /rest/entry/`
 
         ```HTTP 200 OK
@@ -129,7 +130,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
         ]
         ```
 
-- entry/<id>
+- ##### entry/<id>
     - Overview:
         Returns the detail of an Entry Object.
     
@@ -137,6 +138,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
         Represents the id of an Entry Object. Must be an integer.
 
     - Example Response:
+
         `GET /rest/entry/1/`
 
         ```HTTP 200 OK
@@ -162,7 +164,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
         ```
 
 
-- entry/<slug>
+- ##### entry/<slug>
     - Overview:
         Returns the detail of an Entry Object.
 
@@ -170,6 +172,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
         Represents the slug of an Entry Object. Must be a word.
     
     - Example Response:
+
         `GET /rest/entry/entry-1-1/`
 
         ```HTTP 200 OK
