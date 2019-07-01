@@ -1,10 +1,9 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
 
 from simpleblog import settings
 from simpleblog.views import IndexView, EntryView, CategoryView, AuthorView
 
-urlpatterns = patterns(
-    'simpleblog.views',
+urlpatterns = [
     url(
         r'^$',
         IndexView.as_view(),
@@ -28,4 +27,4 @@ urlpatterns = patterns(
             namespace=settings.TOKEN_REST
         )
     )
-)
+]
