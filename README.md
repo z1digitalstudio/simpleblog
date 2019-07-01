@@ -44,4 +44,4 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
   - This context processor provides Last Entries as {{last_entries}} and Categories as {{categories}}
   
 ## API Docs
-- Please see API Docs(https://github.com/z1digitalstudio/simpleblog/blob/rest/API_DOCS.md)
+- Please see [API Docs](https://github.com/z1digitalstudio/simpleblog/blob/rest/API_DOCS.md)
