@@ -12,12 +12,12 @@ class CategoryFilter(filters.SearchFilter):
 class EntryListView(ListAPIView):
     filter_backends = (CategoryFilter,)
     pagination_class = LimitStartPagination
-    queryset = Entry.objects.all()
+    queryset = Entry.objects.all().order_by('-publication_date')
     serializer_class = EntrySerializer
     search_fields = ('category__slug', )
 
 class EntryRetrieveView(RetrieveAPIView):
-    queryset = Entry.objects.all()
+    queryset = Entry.objects.all().order_by('-publication_date')
     serializer_class = EntrySerializer
 
 
