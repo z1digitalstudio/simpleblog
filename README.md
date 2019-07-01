@@ -28,6 +28,8 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
   - Specifies the URL path of the *Category* list view. The default value is 'category'.
 - SIMPLEBLOG_URL_TOKEN_AUTHOR
   - Specifies the URL path of the *Author* list view. The default value is 'author'.
+- SIMPLEBLOG_URL_TOKEN_REST
+  - Specifies the URL path of the *API* endpoints. The default value is 'rest'.
 - SIMPLEBLOG_FACEBOOK_LANGUAGE
   - Specifies the *language* of Facebook Comments Plugin. The default value is 'en_EN'
 - SIMPLEBLOG_FACEBOOK_POSTS_NUMBER
@@ -40,3 +42,6 @@ Simpleblog uses [django-redactoreditor](https://github.com/mazelife/django-redac
 ## Context processor (must be added)
  - "simpleblog.context_processors.simpleblog_context"
   - This context processor provides Last Entries as {{last_entries}} and Categories as {{categories}}
+  
+## API Docs
+- Please see [API Docs](https://github.com/z1digitalstudio/simpleblog/blob/rest/API_DOCS.md)
