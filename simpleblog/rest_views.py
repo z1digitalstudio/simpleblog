@@ -23,5 +23,6 @@ class EntryRetrieveView(RetrieveAPIView):
 
 
 class CategoryListView(ListAPIView):
+    pagination_class = LimitStartPagination
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
