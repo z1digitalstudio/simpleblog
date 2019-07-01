@@ -26,7 +26,22 @@ class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
         fields = (
-            'id', 'title', 'slug', 'image', 'intro', 'content', 'published',
+            'id', 'title', 'slug', 'image', 'intro',
+            'publication_date', 'seo_title', 'seo_description', 'created',
+            'modified', 'author', 'category', 'url'
+        )
+
+
+class EntryDetailSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField()
+
+    def get_url(self, obj):
+        return obj.get_absolute_url()
+
+    class Meta:
+        model = Entry
+        fields = (
+            'id', 'title', 'slug', 'image', 'intro', 'content',
             'publication_date', 'seo_title', 'seo_description', 'created',
             'modified', 'author', 'category', 'url'
         )

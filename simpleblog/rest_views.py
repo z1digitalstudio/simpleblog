@@ -3,7 +3,8 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 from simpleblog.models import Entry, Category
 from simpleblog.rest_pagination import LimitStartPagination
-from simpleblog.serializers import CategorySerializer, EntrySerializer
+from simpleblog.serializers import (
+    CategorySerializer, EntrySerializer, EntryDetailSerializer)
 
 
 class CategoryFilter(filters.SearchFilter):
@@ -18,7 +19,7 @@ class EntryListView(ListAPIView):
 
 class EntryRetrieveView(RetrieveAPIView):
     queryset = Entry.objects.all().order_by('-publication_date')
-    serializer_class = EntrySerializer
+    serializer_class = EntryDetailSerializer
 
 
 class CategoryListView(ListAPIView):
