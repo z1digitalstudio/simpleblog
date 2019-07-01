@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
 from simpleblog import settings
 from simpleblog.views import IndexView, EntryView, CategoryView, AuthorView
@@ -22,7 +22,10 @@ urlpatterns = patterns(
         AuthorView.as_view(),
         name='blog_author_view'),
     url(
-        r'^' + settings.TOKEN_AUTHOR + '/(?P<id>[^/]+)/$',
-        AuthorView.as_view(),
-        name='blog_author_view')
+        r'^' + settings.TOKEN_REST + '/',
+        include(
+            'simpleblog.rest_urls',
+            namespace=settings.TOKEN_REST
+        )
     )
+)
