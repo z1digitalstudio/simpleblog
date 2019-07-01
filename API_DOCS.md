@@ -25,6 +25,7 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
             Indicates the offset to start returning results.
 
     - Example Response:
+       
        `GET /rest/category/`
 
         ```HTTP 200 OK
@@ -57,7 +58,8 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
                 "seo_description": "Cat 3",
                 "url": "/blog/category/category-3/"
             }
-        ]```
+        ]
+        ```
 
 
 ### Entry
@@ -124,7 +126,8 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
                 "category": 1,
                 "url": "/blog/entry-1-1/"
             }
-        ]```
+        ]
+        ```
 
 - entry/<id>
     - Overview:
@@ -155,7 +158,8 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
             "author": "99f60391-a283-4e3c-a119-e88f266d681f",
             "category": 1,
             "url": "/blog/entry-1-1/"
-        }```
+        }
+        ```
 
 
 - entry/<slug>
@@ -187,4 +191,5 @@ Every endpoint will be preceed by the SIMPLEBLOG_URL_TOKEN_REST. See *Optional S
             "author": "99f60391-a283-4e3c-a119-e88f266d681f",
             "category": 1,
             "url": "/blog/entry-1-1/"
-        }```
+        }
+        ```
