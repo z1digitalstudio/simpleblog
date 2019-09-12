@@ -21,6 +21,10 @@ urlpatterns = [
         AuthorView.as_view(),
         name='blog_author_view'),
     url(
+        r'^' + settings.TOKEN_AUTHOR + '/(?P<id>[^/]+)/$',
+        AuthorView.as_view(),
+        name='blog_author_view'),
+    url(
         r'^' + settings.TOKEN_REST + '/',
         include(
             'simpleblog.rest_urls',
