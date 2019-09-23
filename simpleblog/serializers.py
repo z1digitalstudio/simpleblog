@@ -28,7 +28,7 @@ class EntrySerializer(serializers.ModelSerializer):
         fields = (
             'id', 'title', 'slug', 'image', 'intro',
             'publication_date', 'seo_title', 'seo_description',
-            'modified', 'author', 'category', 'url'
+            'modified', 'author', 'category', 'url', 'published',
         )
 
 
