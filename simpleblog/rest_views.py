@@ -10,12 +10,15 @@ from simpleblog.serializers import (
 class CategoryFilter(filters.SearchFilter):
     search_param = "category"
 
+class PublishedFilter(filters.SearchFilter):
+    search_param = 'published'
+
 class EntryListView(ListAPIView):
-    filter_backends = (CategoryFilter,)
+    filter_backends = (CategoryFilter, PublishedFilter,)
     pagination_class = LimitStartPagination
     queryset = Entry.objects.all().order_by('-publication_date')
     serializer_class = EntrySerializer
-    search_fields = ('category__slug', )
+    search_fields = ('category__slug', 'published')
 
 class EntryRetrieveView(RetrieveAPIView):
     queryset = Entry.objects.all().order_by('-publication_date')
