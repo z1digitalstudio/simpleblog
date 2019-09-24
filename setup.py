@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name='django-simpleblog',
     packages=find_packages(),
-    version='0.3a',
+    version='0.3b',
     description='Simple blog application for django framework',
     author='Commite',
     author_email='hola@commite.co',
